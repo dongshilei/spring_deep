@@ -1,0 +1,7 @@
+InitialingBean接口只提供了一个方法afterPropertiesSet()
+该方法在Bean的属性都赋值完毕后执行。
+扩展思路：
+Hyperspace框架中的JdbcBaseDao就实现了InitialingBean的afterPropertiesSet()方法
+在afterPropertiesSet()中，主要处理以下几个工作
+1、利用List<DataSource>给JdbcTemplate数组赋值，包括主从数据源
+2、初始化泛型Bean，获取Bean中注解对应的值，检验Bean的各种注解是否规范
